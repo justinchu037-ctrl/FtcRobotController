@@ -432,9 +432,9 @@ voltage was not updated on driver station if OpMode did not send any telemetry.
   breaking change: old Blocks OpModes that use these Blocks will still function, both in the
   Blocks editor and at runtime.
 * Standardizes on the form "OpMode" for the term OpMode.
-    * The preferred way to refer to OpModes that specifically extend `LinearOpMode` (including Blocks OpModes) is "linear OpMode".
+    * The preferred way to refer to OpModes that specifically extend `MecanumTenSecondDrive.java` (including Blocks OpModes) is "linear OpMode".
     * The preferred way to refer to OpModes that specifically extend `OpMode` directly is "iterative OpMode".
-* Overhauls `OpMode` and `LinearOpMode` Javadoc comments to be easier to read and include more detail.
+* Overhauls `OpMode` and `MecanumTenSecondDrive.java` Javadoc comments to be easier to read and include more detail.
 * Makes minor enhancements to Java samples
     * Javadoc comments in samples that could be rendered badly in Android Studio have been converted to standard multi-line comments
     * Consistency between samples has been improved
@@ -535,7 +535,7 @@ This is a bug fix only release to address the following four issues.
     * `stop()` still has a time limit, but it is now hardcoded to be 1 second, and cannot be changed using `msStuckDetectStop`.
 * Deprecates the `OpMode` methods `internalPreInit()`, `internalPostInitLoop()`, and `internalPostLoop()`.
     * Iterative `OpMode`s will continue to call these methods in case they were overridden.
-    * These methods will not be called at all for `LinearOpMode`s.
+    * These methods will not be called at all for `MecanumTenSecondDrive.java`s.
 * Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`.
 
 ### Enhancements
@@ -568,7 +568,7 @@ This is a bug fix only release to address the following four issues.
     interface by passing a `BNO055IMUNew.Parameters` instance to `IMU.initialize()`.
   * The `IMU` interface is also suitable for implementation by third-party vendors for IMUs that
     support providing the orientation in the form of a quaternion.
-* Iterative `OpMode`s (as opposed to `LinearOpMode`s) now run on a dedicated thread.
+* Iterative `OpMode`s (as opposed to `MecanumTenSecondDrive.java`s) now run on a dedicated thread.
     * Cycle times should not be as impacted by everything else going on in the system.
     * Slow `OpMode`s can no longer increase the amount of time it takes to process network commands, and vice versa.
     * The `init()`, `init_loop()`, `start()` and `loop()` methods no longer need to return within a certain time frame.
@@ -649,7 +649,7 @@ This is a bug fix only release to address the following four issues.
 ### Enhancements
 * Increases the height of the 3-dots Landscape menu touch area on the Driver Station, making it much easier to select.
 * Adds `terminateOpModeNow()` method to allow OpModes to cleanly self-exit immediately.
-* Adds `opModeInInit()` method to `LinearOpMode` to facilitate init-loops. Similar to `opModeIsActive()` but for the init phase.
+* Adds `opModeInInit()` method to `MecanumTenSecondDrive.java` to facilitate init-loops. Similar to `opModeIsActive()` but for the init phase.
 * Warns user if they have a Logitech F310 gamepad connected that is set to DirectInput mode.
 * Allows SPARKmini motor controllers to react more quickly to speed changes.
 * Hides the version number of incorrectly installed sister app (i.e. DS installed on RC device or vice-versa) on inspection screen.
@@ -924,7 +924,7 @@ Version 5.5 requires Android Studio 4.0 or later.
     * The layout will NOT autorotate. You can switch the layout from the Driver Station's settings menu.
 ### Breaking changes
 * Removes support for Android versions 4.4 through 5.1 (KitKat and Lollipop). The minSdkVersion is now 23.
-* Removes the deprecated `LinearOpMode` methods `waitOneFullHardwareCycle()` and `waitForNextHardwareCycle()`
+* Removes the deprecated `MecanumTenSecondDrive.java` methods `waitOneFullHardwareCycle()` and `waitForNextHardwareCycle()`
 ### Enhancements
 * Handles RS485 address of Control Hub automatically
     * The Control Hub is automatically given a reserved address
